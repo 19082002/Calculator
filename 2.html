@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CAL</title>
+        <style>
+   body{
+      text-align: center;
+      background-image: url(back2.jpg);
+      background-size: cover;
+      padding-top:25px;
+      padding-right: 5px;
+      padding-left:5px;
+      font-size: 2em;
+        }
+        a{
+            text-decoration: none;
+            color:rgb(252, 5, 120);
+
+        }
+        .st13{
+           background-color:rgb(250, 154, 9);
+
+            /* background-color: rgb(252, 5, 120); */
+        }
+        .sc{
+            border-color:darkgreen;
+            border-width: thick;
+            border-radius: 19px;
+        }
+        .st1{
+            background-color: rgb(16, 236, 152);
+        }
+        td{
+            width:50px;
+            border:wheat;           
+        }
+        .blank{
+         height:200px;       
+        }
+        button{
+            color:rgb(6, 6, 7);
+            font-weight: bold;
+            height:32px;
+            font-size: 0.8em;
+            border-radius: 10px;
+            width:70px;
+        }
+        .in{
+            height:200px;
+            width:500px;
+            background-color: rgba(44, 33, 32, 0.267);
+            text-align: right;
+            font-size: 1em;
+            color:black;
+            border:none;
+            font-weight: bold;
+        }
+        .para{
+           text-align:left;
+           padding-left: 8px;
+       }
+
+        </style>
+        </head>
+        <body>
+        
+            <form name="calculator">
+            <table border="3" style="border-radius:10px;" class="sc">
+                    <tr>
+                        <td class="blank"id="inputLabel"colspan="5"><input type="text" name="result"
+                        placeholder="0"class="in"></td>
+                        </tr>
+                    <tr class="st">
+                        <td ><button type="button"value="sinh" onclick="sinh();">sinh</button></td>
+                        <td ><button type="button"value="cosh"onclick="cosh();">cosh</button></td>
+                        <td ><button type="button"value="sin" onclick="sin();">sin</button></td>
+                        <td ><button type="button" value="cos" onclick="cos();">cos</button></td>
+                        <td ><button type="button" value="tan" onclick="tan();">tan</button></td>
+                    </tr>
+                    <tr class="st">
+                        <td ><button type="button"value="tanh"onclick="tanh();">tanh</button></td>
+                        <td ><button type="button" value="log" onclick="log();">lg</button></td>
+                        <td ><button type="button" value="mod" onclick="mod();">|x|</button></td>
+                        <td ><button type="button" value="("onclick="number(value)">(</button></td>
+                        <td ><button type="button" value=")"onclick="number(value);">)</button></td>
+                    </tr>
+                 <tr class="st">
+                    <td ><button type="button" value="square"onclick="square();">x^2</button></td>
+                     <td ><button type="button" value="" class="st13"onclick="remv()">AC</button></td>
+                     <td ><button type="button" class="st13"onclick="backspace();">C</button></td>
+                     <td ><button type="button"value="%"onclick="percentage();">%</button></td>
+                     <td ><button type="button"value="/"onclick="number(value);">&#247</button></td>
+                 </tr>
+                    <tr class="st">
+                        <td id="por(this)"><button  type="button" onclick="squarert();">&#8730</button></td>
+                        <td id="por(this)"><button  type="button"value="7" class="st1"onclick="number(value);">7</button></td>
+                        <td id="por(this)"><button  type="button" value="8" class="st1"onclick="number(value);">8</button></td>
+                        <td id="por(this)"><button  type="button" value="9"class="st1"onclick="number(value);">9</button></td>
+                        <td id="por(this)"><button  type="button" value="*"onclick="number(value);">&#215</button></td>
+                    </tr>
+                    <tr class="st">
+                        <td id="por(this)"><button  type="button" onclick="cube();">x^3</button></td>
+                     <td id="por(this)"><button  type="button" value="4"class="st1"onclick="number(value);">4</button></td>
+                     <td id="por(this)"><button type="button"  value="5"class="st1"onclick="number(value);">5</button></td>
+                     <td id="por(this)"><button type="button" value="6"  class="st1"onclick="number(value);">6</button></td>
+                     <td id="por(this)"><button type="button" value="-" onclick="number(value);">-</button></td>
+                 </tr>
+                 <tr class="st">
+                    <td id="por(this)"><button type="button" value="pi" onclick="pi();">&#960;</button></td>
+                     <td id="por(this)"><button type="button" value="1" class="st1"onclick="number(value);">1</button></td>
+                     <td id="por(this)"><button type="button"  value="2"class="st1"onclick="number(value);">2</button></td>
+                     <td id="por(this)"><button type="button" value="3" class="st1"onclick="number(value);">3</button></td>
+                     <td id="por(this)"><button type="button"value="+"  onclick="number(value);">+</button></td>
+                 </tr>
+                 <tr class="st">
+                     <td><button ><a href="1.html">&#8644</a></button> </td>
+                     <td><button type="button"value="0" class="st1"onclick="number(value);">0</button></td>
+                     <td><button type="button" value="."class="st1"onclick="number(value);">.</button></td>
+                     <td ><button type="button"value="exp" onclick="e();">e</button></td>
+                     <td ><button type="button" onclick="equal();"class="st13">=</button></td>
+                 </tr>
+               </table>
+    </form>
+    <p class="para">Made With &hearts; by &#x00024;ananda Dey </p>
+                <script>
+                     
+                   function backspace(){
+                       var a=document.calculator.result.value;
+         document.calculator.result.value=a.substr(0,a.length-1);
+                    }
+                    function cosh(){
+         document.calculator.result.value=Math.cosh(document.calculator.result.value);
+                    }
+                    function sinh(){
+         document.calculator.result.value=Math.sinh(document.calculator.result.value);
+                    }
+                    function tanh(){
+         document.calculator.result.value=Math.tanh(document.calculator.result.value);
+                    }
+                    function cos(){
+         document.calculator.result.value=Math.cos(document.calculator.result.value);
+                    }
+                    function sin(){
+         document.calculator.result.value=Math.sin(document.calculator.result.value);
+                    }
+                    function tan(){
+         document.calculator.result.value=Math.tan(document.calculator.result.value);
+                    }
+                    function log(){
+         document.calculator.result.value=Math.log10(document.calculator.result.value);
+                    }
+                    function mod(){
+         document.calculator.result.value=Math.abs(document.calculator.result.value);
+                    }
+                    function e(){
+         document.calculator.result.value=Math.exp(document.calculator.result.value);
+                    }
+                    function percentage(){
+                        var d=(document.calculator.result.value)/100;
+         document.calculator.result.value=(d);
+                    }
+                    function square(){
+         document.calculator.result.value=Math.pow(document.calculator.result.value,2);
+                    }
+                    function cube(){
+         document.calculator.result.value=Math.pow(document.calculator.result.value,3);
+                    }
+                    function pi(){
+                        document.calculator.result.value=Math.PI;
+                    }
+                    function squarert(){
+         document.calculator.result.value=Math.pow(document.calculator.result.value,0.5);
+                    }
+                    function number (value){
+                        document.calculator.result.value+=value;
+                    }
+                    function remv(){
+                        document.calculator.result.value=" ";
+                    }
+                    function equal(){
+                        document.calculator.result.value=eval( document.calculator.result.value);
+                    }
+                   
+                    
+              
+              </script>
+
+
+
+
+
+        </body>
+        </html>
